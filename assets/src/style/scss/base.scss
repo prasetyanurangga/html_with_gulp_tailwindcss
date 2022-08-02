@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 @import "./test.scss";
-@import "../css/butt.scss";
 
 .alert {
   @apply bg-red-500 #{!important};
