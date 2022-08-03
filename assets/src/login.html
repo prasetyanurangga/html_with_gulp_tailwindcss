@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="img/logo.png" type="image/png" />
+    <link rel="stylesheet" href="css/base.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+<body class="bg-[url('/img/login_image.png')] bg-cover bg-center bg-fixed h-full bg-no-repeat font-sans">
+    <div class="absolute top-0 bg-black opacity-40 h-screen w-screen"></div>
+        <div class="flex flex-col items-start p-10 gap-10 absolute h-screen left-0 top-0 bg-white" style="width: 464px; border-radius: 0px 12px 12px 0px;">
+            <img src="img/Logo-tandhur.svg" alt="Logo-tandhur" class="flex flex-row items-center gap-1 flex-none order-none grow-0" style="width: 156px; height: 52px; padding: 0px 8px 0px 0px;">
+            <div class="flex flex-col items-start p-0 gap-8 w-96 flex-none order-1 grow-0" style="height: 417px;">
+                <div class="w-96 h-14 flex-none order-none self-stretch grow-0">
+                    <div class="-top-px gap-1 left-0 flex flex-col items-start p-0" style="width: 346px; height: 60px;">
+                        <h1 class="h-9 font-semibold text-2xl flex items-center flex-none order-none grow-0" style="font-family: 'Poppins';width: 346px;color: #151E03;">Selamat datang di Tandhur!</h1>
+                        <p class="font-normal text-sm flex items-center flex-none order-1 grow-0" style="width: 169px;font-family: 'Inter';color: #898989;">Masuk untuk melanjutkan</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start p-0 gap-6 w-96 flex-none order-1 self-stretch grow-0" style="height: 350px;">
+                    <form action="register.html" method="post" id="form" class="flex flex-col items-start p-0 gap-6 w-96 flex-none order-none self-stretch grow-0" style="height: 308px;">
+                        <div class="flex flex-col items-start p-0 gap-4 w-96 flex-none order-none self-stretch grow-0" style="height: 240px;">
+                            <div class="flex flex-col items-start p-0 w-96 flex-none order-none self-stretch grow-0" style="gap: 14px;height: 204px;">
+                                <div class="flex flex-col items-start p-0 w-96 flex-none order-none self-stretch grow-0" style="gap: 6px;height: 95px;">
+                                    <div class="h-5 font-medium text-sm flex items-center flex-none order-none grow-0 not-italic" style="width: 141px;font-family: 'Inter';color: #151E03;" id="title">
+                                        Email atau Nomor HP
+                                    </div>
+                                    <input type="text" name="username" id="username" class="box-border flex flex-row items-start gap-2 w-96 h-12 bg-white border border-solid flex-none order-1 self-stretch grow-0
+                                    focus:ring-lime-500" style="border-color: #E1E1E1;border-radius: 5px;" placeholder="Ketik email atau nomor hp di sini" onkeydown="validasi_username()" onkeyup="myEmpty()" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                                    <div class="w-64 font-normal text-xs flex items-center flex-none order-2 grow-0" style="height: 15px;font-family: 'Inter';color: #B51818;" id="error_user"></div>
+                                    <span class="absolute h-5 font-normal text-sm flex items-center flex-none order-4 grow-0" style="width: 37px;font-family: 'Inter';color: #B9B9B9;padding-top: 51px;padding-left: 18px;display: none;" id="kode">
+                                        <p>+62</p>
+                                        <span class="w-5 h-0 border border-solid flex-none order-2 self-stretch grow-0" style="border-color: #E1E1E1;transform: rotate(-90deg);background: #E1E1E1;"></span>
+                                    </span>
+                                </div>
+                                <div class="flex flex-col items-start p-0 w-96 flex-none order-1 self-stretch grow-0" style="gap: 6px;height: 95px;">
+                                    <div class="h-5 font-medium text-sm flex items-center flex-none order-none grow-0 not-italic" style="width: 71px;color: #151E03;font-family: 'Inter';" id="sandi">
+                                        Kata sandi
+                                    </div>
+                                    <input type="password" name="password" id="password" class="box-border flex flex-row items-start gap-2 w-96 h-12 bg-white border border-solid flex-none order-1 self-stretch grow-0
+                                    focus:ring-lime-500" style="border-color: #E1E1E1;border-radius: 5px;" placeholder="Ketik kata sandi di sini" onkeyup="myEmpty()" onkeydown="validasi_password()" pattern=".{8,}" required>
+                                    <div class="not-italic font-normal text-xs flex items-center flex-none order-2 grow-0" style="width: 145px;height: 15px;font-family: 'Inter';color: #B51818;display: none;" id="error_pass">
+                                        Kata sandi minimal 8 digit
+                                    </div>
+                                    <div class="mt-10 flex absolute items-center flex-none order-3 grow-0" style="margin-left: 350px;" onclick="password_show_hide()">
+                                        <img src="img/eye.svg" id="show_eye">
+                                        <img src="img/eye_off.svg" id="hide_eye" style="display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between items-start p-0 w-96 h-5 flex-none order-1 self-stretch grow-0" style="gap: 180px;">
+                                <div class="flex flex-row items-center p-0 gap-2 h-5 flex-none order-none grow-0" style="width: 93px;">
+                                    <input type="checkbox" name="ingat" id="ingat" class="box-border w-4 h-4 bg-white border border-solid flex-none order-none grow-0 text-lime-600
+                                    focus:border-lime-500
+                                    focus:ring-lime-200
+                                    focus:ring-opacity-50" style="border-color: #E1E1E1;border-radius: 2px;">
+                                    <div class="h-5 font-medium text-sm flex items-center flex-none order-1 grow-0" style="width: 69px;font-family: 'Inter';color: #151E03;">
+                                        Ingat saya
+                                    </div>
+                                </div>
+                                <a href="#" class="h-5 not-italic font-semibold text-sm flex items-center flex-none order-1 grow-0" style="width: 114px;font-family: 'Poppins';color: #618512;">
+                                    Lupa kata sandi
+                                </a>
+                            </div>
+                        </div>
+                        <button type="submit" class="flex flex-row justify-center items-center gap-2 w-96 h-11 flex-none order-1 grow-0 hover:bg-[#6F9815] active:bg-[#537210] bg-[#BFBFBF]" style="padding: 12px 16px; border-radius: 5px;" id="button" >
+                            <div class="w-12 h-5 not-italic font-semibold text-sm flex items-center flex-none order-none grow-0 text-white font-sans">
+                                Masuk
+                            </div>
+                        </button>
+                    </form>
+                    <div class="flex flex-row justify-center items-start p-0 gap-1 w-96 flex-none order-3 self-stretch grow-0" style="height: 18px;">
+                        <div class="not-italic font-medium text-xs flex items-center flex-none order-none grow-0" style="width: 112px;height: 18px;font-family: 'Inter';color: #898989;">
+                            Belum punya akun?
+                        </div>
+                        <a href="register.html" class="not-italic font-semibold text-sm flex items-center flex-none order-1 grow-0" style="width: 120px;height: 18px;font-family: 'Poppins';color: #618512;">
+                            Daftar sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>
